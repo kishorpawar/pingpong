@@ -1,0 +1,139 @@
+{
+	"info": {
+		"name": "pingpong",
+		"_postman_id": "a789bc42-8e41-052e-4923-cdcd8f464928",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8000/get/auth/token/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "kishor",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "asdfghjkl",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/get/auth/token/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"get",
+						"auth",
+						"token",
+						""
+					]
+				},
+				"description": "get token for referee"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8000/game/",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 2ac8916b34382f643954f5fd2b3cf6b29bdbf320"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/game/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"game",
+						""
+					]
+				},
+				"description": "Get games for referee"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8000/game/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 2ac8916b34382f643954f5fd2b3cf6b29bdbf320"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "referee",
+							"value": "http://localhost:8000/player/1/",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "player_id",
+							"value": "http://localhost:8000/player/2/",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "attacker",
+							"value": "http://localhost:8000/player/9/",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "status",
+							"value": "STARTED",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "game_type",
+							"value": "LEAGUE",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/game/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"game",
+						""
+					]
+				},
+				"description": "Creating game api"
+			},
+			"response": []
+		}
+	]
+}
