@@ -32,8 +32,9 @@ from referee import views
 
 # routers
 router = routers.DefaultRouter()
-router.register('game', views.GameViewSet)
-router.register('player', views.PlayerViewSet)
+router.register('games', views.GameViewSet)
+router.register('players', views.PlayerViewSet)
+router.register('scores', views.ScoreViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

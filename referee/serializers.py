@@ -2,7 +2,7 @@
 from rest_framework import serializers
 
 #model imports
-from referee.models import Game
+from referee.models import Game, Score
 from django.contrib.auth.models import User as Player
 
 class PlayerSerializer(serializers.HyperlinkedModelSerializer):
@@ -12,8 +12,12 @@ class PlayerSerializer(serializers.HyperlinkedModelSerializer):
 
 class GameSerializer(serializers.HyperlinkedModelSerializer):
 
-	players = PlayerSerializer(many = True, read_only = True)
 	class Meta:
 		model = Game
-		fields = ('referee', 'players', 'attacker', 'status', 'game_type')
+		fields = ('__all__')
 
+
+class ScoreSerializer(serializers.HyperlinkedModelSerializer):
+	class Meta:
+		model = Score
+		fields = ('__all__')

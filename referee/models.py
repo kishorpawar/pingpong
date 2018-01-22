@@ -27,7 +27,18 @@ GAME_TYPE = (
 
 class Game(models.Model):
 	referee = models.ForeignKey(User, on_delete=models.CASCADE, related_name='referee')
-	player = models.ForeignKey(User, on_delete=models.CASCADE, related_name='opponent')
+	player_1 = models.ForeignKey(User, on_delete=models.CASCADE, related_name='opponent_1')
+	player_2 = models.ForeignKey(User, on_delete=models.CASCADE, related_name='opponent_2')
 	attacker = models.ForeignKey(User, on_delete=models.CASCADE, related_name='attacker')
 	status = models.CharField(max_length=20, choices=GAME_STATUS, default='QUEUED')
 	game_type = models.CharField(max_length=20, choices=GAME_TYPE, default='LEAGUE')
+
+
+class Score(models.Model):
+	game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name='games')
+	player_1_score = models.PositiveSmallIntegerField()
+	player_2_score = models.PositiveSmallIntegerField()
+
+class Play(models.Model):
+	game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name='running_games')
+	# attacker = 
